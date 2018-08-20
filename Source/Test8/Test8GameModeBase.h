@@ -13,8 +13,9 @@ UCLASS()
 class TEST8_API ATest8GameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
-	
+
+protected:
+		virtual void StartPlay() override;
 	
 	
 };
