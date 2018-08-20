@@ -4,7 +4,7 @@
 #include "Engine/Classes/Components/InputComponent.h"
 #include "Engine/Classes/GameFramework/Character.h"
 #include "Engine/Classes/Camera/CameraComponent.h"
-
+#include "Engine/Classes/Components/CapsuleComponent.h"
 // Sets default values
 AMainCharacter::AMainCharacter()
 {
@@ -15,6 +15,10 @@ AMainCharacter::AMainCharacter()
 	//初始化两个摄像机
 	CameraOne = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraOne"));
 	CameraTwo = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraTwo"));
+
+	//附加到胶囊体中
+	CameraOne->AttachTo(GetCapsuleComponent());
+	CameraTwo->AttachTo(GetCapsuleComponent());
 }
 
 // Called when the game starts or when spawned
