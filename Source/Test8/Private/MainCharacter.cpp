@@ -3,6 +3,7 @@
 #include "Public/MainCharacter.h"
 #include "Engine/Classes/Components/InputComponent.h"
 #include "Engine/Classes/GameFramework/Character.h"
+#include "Engine/Classes/Camera/CameraComponent.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -10,6 +11,10 @@ AMainCharacter::AMainCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+
+	//初始化两个摄像机
+	CameraOne = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraOne"));
+	CameraTwo = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraTwo"));
 }
 
 // Called when the game starts or when spawned

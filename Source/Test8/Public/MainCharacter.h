@@ -23,6 +23,12 @@ protected:
 
 	void MoveRight(float Value);
 
+	UPROPERTY(EditAnywhere,Category="Camera")
+	class UCameraComponent * CameraOne;//第一个摄像机
+
+	UPROPERTY(EditAnywhere, Category = "Camera")
+	class UCameraComponent * CameraTwo;//第二个摄像机
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
