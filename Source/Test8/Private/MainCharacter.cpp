@@ -12,11 +12,11 @@ AMainCharacter::AMainCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 
-	//³õÊ¼»¯Á½¸öÉãÏñ»ú
+	//åˆå§‹åŒ–ä¸¤ä¸ªæ‘„åƒæœº
 	CameraOne = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraOne"));
 	CameraTwo = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraTwo"));
 
-	//¸½¼Óµ½½ºÄÒÌåÖĞ
+	//é™„åŠ åˆ°èƒ¶å›Šä½“ä¸­
 	CameraOne->AttachTo(GetCapsuleComponent());
 	CameraTwo->AttachTo(GetCapsuleComponent());
 }
@@ -40,19 +40,19 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	//Ç°ºó×óÓÒÒÆ¶¯+Êó±ê¿ØÖÆ
+	//å‰åå·¦å³ç§»åŠ¨+é¼ æ ‡æ§åˆ¶
 	PlayerInputComponent->BindAxis("MoveForward",this,&AMainCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
 	PlayerInputComponent->BindAxis("Turn",this,&APawn::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp",this,&APawn::AddControllerPitchInput);
 
-	//ÌøÔ¾
+	//è·³è·ƒ
 	PlayerInputComponent->BindAction("Jump",IE_Pressed,this,&ACharacter::Jump);
 }
 
 void AMainCharacter::MoveForward(float Value)
 {
-	//Ìí¼ÓÏòÇ°ÒÆ¶¯µÄÊäÈë£ºActorÇ°·½ÏòÁ¿£¬¼ÓÉÏValue
+	//æ·»åŠ å‘å‰ç§»åŠ¨çš„è¾“å…¥ï¼šActorå‰æ–¹å‘é‡ï¼ŒåŠ ä¸ŠValue
 	AddMovementInput(GetActorForwardVector(),Value);
 }
 

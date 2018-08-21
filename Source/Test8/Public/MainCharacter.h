@@ -23,19 +23,19 @@ protected:
 
 	void MoveRight(float Value);
 
-	UPROPERTY(EditAnywhere,Category="Camera")
-	class UCameraComponent * CameraOne;//第一个摄像机
+	UPROPERTY(EditAnywhere, Category = "Camera")
+		class UCameraComponent * CameraOne;//绗竴涓憚鍍忔満
 
 	UPROPERTY(EditAnywhere, Category = "Camera")
-	class UCameraComponent * CameraTwo;//第二个摄像机
+		class UCameraComponent * CameraTwo;//绗簩涓憚鍍忔満
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
-	
+
+
 };
