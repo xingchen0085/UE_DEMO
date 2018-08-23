@@ -23,11 +23,24 @@ protected:
 
 	void MoveRight(float Value);
 
-	UPROPERTY(EditAnywhere,Category="Camera")
-	class UCameraComponent * CameraOne;//第一个摄像机
+	void StartJump();
 
-	UPROPERTY(EditAnywhere, Category = "Camera")
-	class UCameraComponent * CameraTwo;//第二个摄像机
+	void StopJump();
+
+	UPROPERTY(EditAnywhere,Category="Camera")
+	class UCameraComponent * CameraOne;
+
+	//第一人称模型
+	UPROPERTY(EditAnywhere,Category="Mesh")
+	class USkeletalMeshComponent * FPSMesh;
+
+	//发射点于视角的坐标偏移
+	UPROPERTY(EditAnywhere,Category="GamePlay")
+	FVector MuzzleOffset;
+
+	//发射物
+	UPROPERTY(EditAnywhere,Category="Projectile")
+	TSubclassOf<class AMainProjectile> ProjectileClass;
 
 public:	
 	// Called every frame
@@ -36,6 +49,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
-	
+	//发射球体
+	void Fire();
+
 };
