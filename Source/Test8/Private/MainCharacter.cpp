@@ -14,7 +14,6 @@ AMainCharacter::AMainCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-
 	//初始化摄像机
 	CameraOne = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraOne"));
 	//将摄像机追加到胶囊体
@@ -58,12 +57,10 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	//前后左右移动+鼠标控制
 	PlayerInputComponent->BindAxis("MoveForward",this,&AMainCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
 	PlayerInputComponent->BindAxis("Turn",this,&AMainCharacter::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp",this, &AMainCharacter::AddControllerPitchInput);
-
 	//跳跃
 	PlayerInputComponent->BindAction("Jump",IE_Pressed,this,&AMainCharacter::StartJump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &AMainCharacter::StopJump);
@@ -107,7 +104,6 @@ void AMainCharacter::Fire() {
 
 void AMainCharacter::MoveForward(float Value)
 {
-	//添加向前移动的输入：Actor前方向量，加上Value
 	AddMovementInput(GetActorForwardVector(),Value);
 }
 

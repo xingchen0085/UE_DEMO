@@ -42,7 +42,7 @@ protected:
 	UPROPERTY(EditAnywhere,Category="Projectile")
 	TSubclassOf<class AMainProjectile> ProjectileClass;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
